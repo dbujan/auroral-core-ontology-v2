@@ -1,0 +1,319 @@
+ @prefix : <http://www.w3.org/ns/dcat#> .
+@prefix core: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix org: <http://www.owl-ontologies.com/org#> .
+@prefix geo: <http://www.owl-ontologies.com/geo#> .
+@prefix wot: <http://www.owl-ontologies.com/wot#> .
+@prefix hctl: <http://www.owl-ontologies.com/hctl#> .
+@prefix saref: <http://www.owl-ontologies.com/saref#> .
+@prefix sosa: <http://www.owl-ontologies.com/sosa#> .
+@prefix om: <http://www.owl-ontologies.com/om#> .
+@prefix geon: <http://www.owl-ontologies.com/geon#> .
+@prefix dcat: <http://www.owl-ontologies.com/dcat#> .
+@base <http://www.w3.org/ns/dcat#> .
+
+<http://www.w3.org/ns/dcat#> rdf:type owl:Ontology ;
+			dc:description "Ontology code created by Chowlk" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+### core:hasNotification
+core:hasNotification rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Organisation ;
+		rdfs:range core:Notification ;
+		rdfs:label "has notification" .
+
+### core:hasOwner
+core:hasOwner rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Notification ;
+		rdfs:range core:Organisation ;
+		rdfs:label "has owner" .
+
+### <http://www.w3.org/ns/dcat#knows
+hasPartnershipRequestedBy
+hasPartnershipRequestedTo>
+<http://www.w3.org/ns/dcat#knows
+hasPartnershipRequestedBy
+hasPartnershipRequestedTo> rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Organisation ;
+		rdfs:range core:Organisation ;
+		rdfs:label "knows
+has partnership requested by
+has partnership requested to>" .
+
+### core:hasNode
+core:hasNode rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Organisation ;
+		rdfs:range core:Node ;
+		rdfs:label "has node" .
+
+### core:hasAudit
+core:hasAudit rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Organisation ;
+		rdfs:range core:Audit ;
+		rdfs:label "has audit" .
+
+### core:hasAudit
+core:hasAudit rdf:type owl:ObjectProperty ;
+		rdfs:domain core:User ;
+		rdfs:range core:Audit ;
+		rdfs:label "has audit" .
+
+### core:belongsTo
+core:belongsTo rdf:type owl:ObjectProperty ;
+		rdfs:domain core:User ;
+		rdfs:range core:Organisation ;
+		rdfs:label "belongs to" .
+
+### core:hasUser
+core:hasUser rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Organisation ;
+		rdfs:range core:User ;
+		rdfs:label "has user" .
+
+### core:hasRole
+core:hasRole rdf:type owl:ObjectProperty ;
+		rdfs:domain core:User ;
+		rdfs:range core:Role ;
+		rdfs:label "has role" .
+
+### wot:hasLink
+wot:hasLink rdf:type owl:ObjectProperty ;
+		rdfs:domain wot:Thing ;
+		rdfs:range hctl:Link ;
+		rdfs:label "has link" .
+
+### core:containsItem
+core:containsItem rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Node ;
+		rdfs:range core:Item ;
+		rdfs:label "contains item" .
+
+### core:containsItem
+core:containsItem rdf:type owl:ObjectProperty ;
+		rdfs:domain core:User ;
+		rdfs:range core:Item ;
+		rdfs:label "contains item" .
+
+### core:hasNode
+core:hasNode rdf:type owl:ObjectProperty ;
+		rdfs:domain core:User ;
+		rdfs:range core:Node ;
+		rdfs:label "has node" .
+
+### core:hasDomain
+core:hasDomain rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Item ;
+		rdfs:label "has domain" .
+
+### core:applicableToGeographicalArea
+core:applicableToGeographicalArea rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Service ;
+		rdfs:range core:Place ;
+		rdfs:label "applicable to geographical area" .
+
+### core:makesMeasurement
+core:makesMeasurement rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Device ;
+		rdfs:range saref:Measurement ;
+		rdfs:label "makes measurement" .
+
+### sosa:observes
+sosa:observes rdf:type owl:ObjectProperty ;
+		rdfs:label "observes" .
+
+### sosa:forProperty
+sosa:forProperty rdf:type owl:ObjectProperty ;
+		rdfs:label "for property" .
+
+### core:aboutProperty
+core:aboutProperty rdf:type owl:ObjectProperty ;
+		rdfs:domain saref:Measurement ;
+		rdfs:range saref:Property ;
+		rdfs:label "about property" .
+
+### saref:hasProperty
+saref:hasProperty rdf:type owl:ObjectProperty ;
+		rdfs:domain saref:FeatureOfInterest ;
+		rdfs:range saref:Property ;
+		rdfs:label "has property" .
+
+### saref:isPropertyOf
+saref:isPropertyOf rdf:type owl:ObjectProperty ;
+		rdfs:domain saref:Property ;
+		rdfs:range saref:FeatureOfInterest ;
+		rdfs:label "is property of" .
+
+### saref:isMeasuredIn
+saref:isMeasuredIn rdf:type owl:ObjectProperty ;
+		rdfs:label "is measured in" .
+
+### geo:location
+geo:location rdf:type owl:ObjectProperty ;
+		rdfs:label "location" .
+
+#################################################################
+#    Data Properties
+#################################################################
+
+#################################################################
+#    Classes
+#################################################################
+
+### <http://www.w3.org/ns/dcat#Class>
+<http://www.w3.org/ns/dcat#Class> rdf:type owl:Class ;
+	rdfs:label "Class>" .
+
+### <http://www.w3.org/ns/dcat#Reusedclass>
+<http://www.w3.org/ns/dcat#Reusedclass> rdf:type owl:Class ;
+	rdfs:label "Reusedclass>" .
+
+### core:Organisation
+core:Organisation rdf:type owl:Class ;
+	rdfs:label "Organisation" .
+
+### core:Notification
+core:Notification rdf:type owl:Class ;
+	rdfs:label "Notification" .
+
+### core:User
+core:User rdf:type owl:Class ;
+	rdfs:label "User" .
+
+### core:Role
+core:Role rdf:type owl:Class ;
+	rdfs:label "Role" .
+
+### core:Service
+core:Service rdf:type owl:Class ;
+	rdfs:label "Service" ;
+	rdfs:subClassOf core:VirtualThing .
+
+### org:Organization
+org:Organization rdf:type owl:Class ;
+	rdfs:label "Organization" .
+
+### geo:SpatialThing
+geo:SpatialThing rdf:type owl:Class ;
+	rdfs:label "Spatial Thing" .
+
+### core:Item
+core:Item rdf:type owl:Class ;
+	rdfs:label "Item" ;
+	rdfs:subClassOf wot:Thing .
+
+### wot:Thing
+wot:Thing rdf:type owl:Class ;
+	rdfs:label "Thing" .
+
+### hctl:Link
+hctl:Link rdf:type owl:Class ;
+	rdfs:label "Link" .
+
+### core:Domain
+core:Domain rdf:type owl:Class ;
+	rdfs:label "Domain" .
+
+### saref:Device
+saref:Device rdf:type owl:Class ;
+	rdfs:label "Device" .
+
+### core:Sensor
+core:Sensor rdf:type owl:Class ;
+	rdfs:label "Sensor" ;
+	rdfs:subClassOf core:Device ;
+	rdfs:subClassOf sosa:Sensor .
+
+### core:Actuator
+core:Actuator rdf:type owl:Class ;
+	rdfs:label "Actuator" ;
+	rdfs:subClassOf core:Device ;
+	rdfs:subClassOf sosa:Actuator .
+
+### sosa:Sensor
+sosa:Sensor rdf:type owl:Class ;
+	rdfs:label "Sensor" .
+
+### sosa:Actuator
+sosa:Actuator rdf:type owl:Class ;
+	rdfs:label "Actuator" .
+
+### saref:Property
+saref:Property rdf:type owl:Class ;
+	rdfs:label "Property" .
+
+### om:Unit_of_measure
+om:Unit_of_measure rdf:type owl:Class ;
+	rdfs:label "Unit_of_measure" .
+
+### saref:Measurement
+saref:Measurement rdf:type owl:Class ;
+	rdfs:label "Measurement" .
+
+### core:Device
+core:Device rdf:type owl:Class ;
+	rdfs:label "Device" ;
+	rdfs:subClassOf core:PhysicalThing ;
+	rdfs:subClassOf saref:Device .
+
+### saref:FeatureOfInterest
+saref:FeatureOfInterest rdf:type owl:Class ;
+	rdfs:label "Feature Of Interest" .
+
+### core:Audit
+core:Audit rdf:type owl:Class ;
+	rdfs:label "Audit" .
+
+### core:Node
+core:Node rdf:type owl:Class ;
+	rdfs:label "Node" .
+
+### core:VirtualThing
+core:VirtualThing rdf:type owl:Class ;
+	rdfs:label "Virtual Thing" ;
+	rdfs:subClassOf core:Item .
+
+### core:PhysicalThing
+core:PhysicalThing rdf:type owl:Class ;
+	rdfs:label "Physical Thing" ;
+	rdfs:subClassOf core:Item .
+
+### geon:Feature
+geon:Feature rdf:type owl:Class ;
+	rdfs:label "Feature" .
+
+### core:Place
+core:Place rdf:type owl:Class ;
+	rdfs:label "Place" ;
+	rdfs:subClassOf geon:Feature .
+
+### dcat:Dataset
+dcat:Dataset rdf:type owl:Class ;
+	rdfs:label "Dataset" .
+
+### core:Dataset
+core:Dataset rdf:type owl:Class ;
+	rdfs:label "Dataset" ;
+	rdfs:subClassOf dcat:Dataset ;
+	rdfs:subClassOf core:VirtualThing .
+
+#################################################################
+#    Instances
+#################################################################
+
+### <http://www.w3.org/ns/dcat#Instance>
+<http://www.w3.org/ns/dcat#Instance> rdf:type owl:NamedIndividual .
+
+#################################################################
+#    General Axioms
+#################################################################
+
