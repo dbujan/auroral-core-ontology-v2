@@ -17,7 +17,6 @@
 @prefix saref: <https://saref.etsi.org/core#> .
 @prefix geonames: <http://www.geonames.org/ontology#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @base <https://auroral.iot.linkeddata.es/def/core#> .
 
 <https://auroral.iot.linkeddata.es/def/core#> rdf:type owl:Ontology ;
@@ -26,7 +25,6 @@
                                                           "Andrea Cimmino" ,
                                                           "María Poveda-Villalón" ,
                                                           "Raúl García Castro" ;
-                                               dc:contributor "David Buján-Carballal" ;
                                                dc:description "This ontology aims at modelling the data related to users, items, notification and organisations for the AURORAL project." ;
                                                dc:title "The AURORAL Core Ontology" ;
                                                <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
@@ -1010,22 +1008,6 @@ wot:Thing rdf:type owl:Class ;
 ###  https://www.w3.org/ns/org#Organization
 org:Organization rdf:type owl:Class ;
                  rdfs:label "Organization" .
-
-
-### http://www.w3.org/ns/dcat#Dataset
-dcat:Dataset rdf:type owl:Class ;
-            rdfs:label "Dataset" .
-
-
-###  https://auroral.iot.linkeddata.es/def/core#Dataset
-core:Dataset rdf:type owl:Class ;
-             rdfs:subClassOf dcat:Dataset ;
-             rdfs:subClassOf core:VirtualThing ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty core:hasDomain ;
-                               owl:someValuesFrom xsd:string
-                             ] ;
-             rdfs:label "Dataset" .
 
 
 #################################################################
