@@ -1,6 +1,6 @@
-# Auroral Core Ontology
+# Auroral Core Ontology V2
 
-This repository contains the code and documentation generated for the the AURORAL Core ontology.
+This repository contains the code and documentation generated for the the AURORAL Core ontology V2.
 
 ## Current version of the ontology model
 
