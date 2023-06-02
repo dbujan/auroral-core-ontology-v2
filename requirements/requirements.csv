@@ -41,3 +41,6 @@ core-37,BAV,"Types of roles can be: admin, user, infrastructure operator, servic
 core-38,BAV,A user contain can contain a notification,,,,,,,,,
 core-39,BAV,A user can contain an audit,,,,,,,,,
 core-40,BAV,A user can contain an item,,,,,,,,,
+core-41,UDEUSTO,"A Dataset entity is needed for the CKAN metadata catalogue service, compliant with the DCAT vocabulary","core:Dataset, dcat:Dataset",,,,,,,,
+core-42,UDEUSTO,What are the needed metadata attributes related to a Dataset entity for registering in CKAN?,"Name, Resource (URL), Organization (owner), Description, Domain, Tags, License, Visibility (public/private)",,,,,,,,
+core-43,UDEUSTO,A Dataset entity should be linked to core:Organisation and core:Domain,"core:provider, core:hasDomain",,,,,,,,
