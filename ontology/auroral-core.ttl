@@ -144,6 +144,13 @@ core:hasPartnershipRequestedTo rdf:type owl:ObjectProperty ;
                                rdfs:label "has partnership requested to" .
 
 
+###  https://auroral.iot.linkeddata.es/def/core#hasReadability
+core:hasReadability rdf:type owl:ObjectProperty ;
+                    rdfs:domain saref:Measurement ;
+                    rdfs:range core:Readability ;
+                    rdfs:label "has Readability" .
+
+
 ###  https://auroral.iot.linkeddata.es/def/core#hasRole
 core:hasRole rdf:type owl:ObjectProperty ;
              rdfs:domain core:User ;
@@ -294,6 +301,13 @@ core:adapterId rdf:type owl:DatatypeProperty ;
 core:code rdf:type owl:DatatypeProperty ;
           rdfs:domain core:Place ;
           rdfs:range xsd:string .
+
+
+###  https://auroral.iot.linkeddata.es/def/core#continentCode
+core:continentCode rdf:type owl:DatatypeProperty ;
+                   rdfs:domain core:Country ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "continent Code" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#currentStatus
@@ -455,9 +469,15 @@ core:isUnread rdf:type owl:DatatypeProperty ;
               rdfs:label "is unread" .
 
 
+###  https://auroral.iot.linkeddata.es/def/core#isoCode
+core:isoCode rdf:type owl:DatatypeProperty ;
+             rdfs:domain core:Country ;
+             rdfs:range xsd:string ;
+             rdfs:label "iso Code" .
+
+
 ###  https://auroral.iot.linkeddata.es/def/core#name
 core:name rdf:type owl:DatatypeProperty ;
-          rdfs:domain core:Place ;
           rdfs:range xsd:string .
 
 
@@ -484,6 +504,12 @@ core:serialNumber rdf:type owl:DatatypeProperty ;
 core:serviceFree rdf:type owl:DatatypeProperty ;
                  rdfs:range xsd:boolean ;
                  rdfs:label "service free" .
+
+
+###  https://auroral.iot.linkeddata.es/def/core#value
+core:value rdf:type owl:DatatypeProperty ;
+           rdfs:domain core:Readability ;
+           rdfs:range xsd:integer .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#versionNumber
@@ -581,6 +607,11 @@ core:Building rdf:type owl:Class ;
 ###  https://auroral.iot.linkeddata.es/def/core#City
 core:City rdf:type owl:Class ;
           rdfs:subClassOf saref:FeatureOfInterest .
+
+
+###  https://auroral.iot.linkeddata.es/def/core#Country
+core:Country rdf:type owl:Class ;
+             rdfs:subClassOf geonames:Feature .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#Device
@@ -794,6 +825,11 @@ core:PhysicalThing rdf:type owl:Class ;
 core:Place rdf:type owl:Class ;
            rdfs:subClassOf geonames:Feature ;
            rdfs:label "Place" .
+
+
+###  https://auroral.iot.linkeddata.es/def/core#Readability
+core:Readability rdf:type owl:Class ;
+                 rdfs:label "Readability" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#Role
