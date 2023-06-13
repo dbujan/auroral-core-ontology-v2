@@ -9,6 +9,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix core: <https://auroral.iot.linkeddata.es/def/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix hctl: <https://www.w3.org/2019/wot/hypermedia#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -18,10 +19,7 @@
 @prefix geonames: <http://www.geonames.org/ontology#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @base <https://auroral.iot.linkeddata.es/def/core#> .
-### Added to import "dcat:Dataset" entity
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 
-### Updated with "dc:contributor" and "owl:versionInfo"
 <https://auroral.iot.linkeddata.es/def/core#> rdf:type owl:Ontology ;
                                                dc:creator "Ahlem Rhayem" ,
                                                           "Alba Fernández Izquierdo" ,
@@ -52,6 +50,10 @@ dc:title rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/license
 <http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -287,6 +289,18 @@ wot:hasValueType rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
+###  http://purl.org/dc/elements/1.1/license
+dc:license rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/dcat#accessURL
+dcat:accessURL rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/ns/dcat#keyword
+dcat:keyword rdf:type owl:DatatypeProperty .
+
+
 ###  https://auroral.iot.linkeddata.es/def/core#adapterId
 core:adapterId rdf:type owl:DatatypeProperty ;
                rdfs:domain core:Item ;
@@ -503,6 +517,11 @@ core:versionOfService rdf:type owl:DatatypeProperty ;
                       rdfs:label "version of service" .
 
 
+###  https://auroral.iot.linkeddata.es/def/core#visibility
+core:visibility rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:boolean .
+
+
 ###  https://saref.etsi.org/core#hasManufacturer
 saref:hasManufacturer rdf:type owl:DatatypeProperty ;
                       rdfs:range xsd:string ;
@@ -555,6 +574,11 @@ geo:SpatialThing rdf:type owl:Class ;
                  rdfs:label "Spatial Thing" .
 
 
+###  http://www.w3.org/ns/dcat#Dataset
+dcat:Dataset rdf:type owl:Class ;
+             rdfs:label "Dataset" .
+
+
 ###  http://xmlns.com/foaf/0.1/Image
 foaf:Image rdf:type owl:Class ;
            rdfs:label "Image" .
@@ -585,6 +609,45 @@ core:Building rdf:type owl:Class ;
 ###  https://auroral.iot.linkeddata.es/def/core#City
 core:City rdf:type owl:Class ;
           rdfs:subClassOf saref:FeatureOfInterest .
+
+
+###  https://auroral.iot.linkeddata.es/def/core#Dataset
+core:Dataset rdf:type owl:Class ;
+             rdfs:subClassOf dcat:Dataset ,
+                             core:VirtualThing ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty core:hasDomain ;
+                               owl:allValuesFrom core:Domain
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty core:provider ;
+                               owl:allValuesFrom core:Organisation
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:description ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:license ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:title ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:accessURL ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:keyword ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty core:visibility ;
+                               owl:someValuesFrom xsd:boolean
+                             ] ;
+             rdfs:label "Dataset" .
 
 
 ###  https://auroral.iot.linkeddata.es/def/core#Device
@@ -1014,48 +1077,6 @@ org:Organization rdf:type owl:Class ;
                  rdfs:label "Organization" .
 
 
-### http://www.w3.org/ns/dcat#Dataset
-dcat:Dataset rdf:type owl:Class ;
-  rdfs:label "Dataset" .
-
-###  https://auroral.iot.linkeddata.es/def/core#Dataset
-core:Dataset rdf:type owl:Class ;
-             rdfs:subClassOf core:VirtualThing ,
-                             dcat:Dataset ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty dc:title ;
-                               owl:someValuesFrom xsd:string
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty dcat:accessURL ;
-                               owl:someValuesFrom xsd:string
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty core:provider ;
-                               owl:allValuesFrom core:Organisation
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty dc:description ;
-                               owl:someValuesFrom xsd:string
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty core:hasDomain ;
-                               owl:allValuesFrom core:Domain
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty dcat:keyword ;
-                               owl:someValuesFrom xsd:string
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty dc:license ;
-                               owl:someValuesFrom xsd:string
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty core:visibility ;
-                               owl:someValuesFrom xsd:boolean
-                             ] ;
-             rdfs:label "Dataset" .
-
 #################################################################
 #    Individuals
 #################################################################
@@ -1435,10 +1456,16 @@ core:kilowattHourYear rdf:type owl:NamedIndividual ,
 core:User rdfs:label "User" .
 
 
+core:hasDomain rdfs:label "has domain" .
+
+
 core:hasLocation rdfs:label "has location" .
 
 
 core:hasStatus rdfs:label "has status" .
+
+
+core:provider rdfs:label "provider" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
