@@ -35,41 +35,36 @@ This repository contains the code and documentation generated for the the AURORA
 
 ### Annotation properties
 
-http://purl.org/dc/elements/1.1/contributor
+```
+### http://purl.org/dc/elements/1.1/contributor
 dc:contributor rdf:type owl:AnnotationProperty .
 
-http://purl.org/dc/elements/1.1/description
+### http://purl.org/dc/elements/1.1/description
 dc:description rdf:type owl:AnnotationProperty .
 
-http://purl.org/dc/elements/1.1/title
+### http://purl.org/dc/elements/1.1/title
 dc:title rdf:type owl:AnnotationProperty .
 
-http://purl.org/dc/terms/license
+### http://purl.org/dc/terms/license
 dc:license rdf:type owl:AnnotationProperty .
+```
 
+###    Data properties
 
-
-#################################################################
-#    Data properties
-#################################################################
-
+```
 ###  http://purl.org/dc/elements/1.1/license
 dc:license rdf:type owl:DatatypeProperty .
-
 
 ###  http://www.w3.org/ns/dcat#accessURL
 dcat:accessURL rdf:type owl:DatatypeProperty .
 
-
 ###  http://www.w3.org/ns/dcat#keyword
 dcat:keyword rdf:type owl:DatatypeProperty .
+```
 
+###    Classes
 
-
-	#################################################################
-#    Classes
-#################################################################
-
+```
 ###  http://www.w3.org/ns/dcat#Dataset
 dcat:Dataset rdf:type owl:Class ;
              rdfs:label "Dataset" .
@@ -111,3 +106,4 @@ core:Dataset rdf:type owl:Class ;
                                owl:someValuesFrom xsd:boolean
                              ] ;
              rdfs:label "Dataset" .
+```
