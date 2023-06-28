@@ -14,7 +14,6 @@
 @prefix wot: <http://www.owl-ontologies.com/wot#> .
 @prefix hctl: <http://www.owl-ontologies.com/hctl#> .
 @prefix saref: <http://www.owl-ontologies.com/saref#> .
-@prefix sosa: <http://www.owl-ontologies.com/sosa#> .
 @prefix om: <http://www.owl-ontologies.com/om#> .
 @prefix lexvo: <http://www.owl-ontologies.com/lexvo#> .
 @prefix geon: <http://www.owl-ontologies.com/geon#> .
@@ -42,7 +41,7 @@ geo:location rdf:type owl:ObjectProperty ;
 
 ### core:hasNode
 core:hasNode rdf:type owl:ObjectProperty ;
-		rdfs:domain core:Organisation ;
+		rdfs:domain core:Organization ;
 		rdfs:range core:Node ;
 		rdfs:label "has node" .
 
@@ -101,8 +100,8 @@ hasPartnershipRequestedTo>
 <http://www.w3.org/ns/dcat#knows
 hasPartnershipRequestedBy
 hasPartnershipRequestedTo> rdf:type owl:ObjectProperty ;
-		rdfs:domain core:Organisation ;
-		rdfs:range core:Organisation ;
+		rdfs:domain core:Organization ;
+		rdfs:range core:Organization ;
 		rdfs:label "knows
 has partnership requested by
 has partnership requested to>" .
@@ -131,17 +130,15 @@ core:hasAudit rdf:type owl:ObjectProperty ;
 core:hasOwner rdf:type owl:ObjectProperty ;
 		rdfs:label "has owner" .
 
-### sosa:observes
-sosa:observes rdf:type owl:ObjectProperty ;
-		rdfs:label "observes" .
-
-### sosa:forProperty
-sosa:forProperty rdf:type owl:ObjectProperty ;
-		rdfs:label "for property" .
-
 ### saref:isMeasuredIn
 saref:isMeasuredIn rdf:type owl:ObjectProperty ;
 		rdfs:label "is measured in" .
+
+### core:hasReadability
+core:hasReadability rdf:type owl:ObjectProperty ;
+		rdfs:domain saref:Measurement ;
+		rdfs:range core:Readability ;
+		rdfs:label "has readability" .
 
 ### saref:makesMeasurement
 saref:makesMeasurement rdf:type owl:ObjectProperty ;
@@ -178,6 +175,12 @@ geo:location rdf:type owl:ObjectProperty ;
 		rdfs:domain core:PhysicalThing ;
 		rdfs:range geo:SpatialThing ;
 		rdfs:label "location" .
+
+### saref:controlsProperty
+saref:controlsProperty rdf:type owl:ObjectProperty ;
+		rdfs:domain core:Device ;
+		rdfs:range saref:Property ;
+		rdfs:label "controls property" .
 
 ### core:applicableToGeographicalArea
 core:applicableToGeographicalArea rdf:type owl:ObjectProperty ;
@@ -295,8 +298,8 @@ core:hasUpdateDate rdf:type owl:DatatypeProperty ;
 		rdfs:range xsd:dateTime ;
 		rdfs:label "has update date" .
 
-### core:Id
-core:Id rdf:type owl:DatatypeProperty ;
+### core:id
+core:id rdf:type owl:DatatypeProperty ;
 		rdfs:domain saref:FeatureOfInterest ;
 		rdfs:range xsd:string ;
 		rdfs:label "id" .
@@ -313,13 +316,31 @@ core:code rdf:type owl:DatatypeProperty ;
 		rdfs:range xsd:string ;
 		rdfs:label "code" .
 
+### core:value
+core:value rdf:type owl:DatatypeProperty ;
+		rdfs:domain core:Readability ;
+		rdfs:range xsd:integer ;
+		rdfs:label "value" .
+
+### core:isoCode
+core:isoCode rdf:type owl:DatatypeProperty ;
+		rdfs:domain core:Country ;
+		rdfs:range xsd:string ;
+		rdfs:label "iso code" .
+
+### core:continentCode
+core:continentCode rdf:type owl:DatatypeProperty ;
+		rdfs:domain core:Country ;
+		rdfs:range xsd:string ;
+		rdfs:label "continent code" .
+
 #################################################################
 #    Classes
 #################################################################
 
-### core:Organisation
-core:Organisation rdf:type owl:Class ;
-	rdfs:label "Organisation" ;
+### core:Organization
+core:Organization rdf:type owl:Class ;
+	rdfs:label "Organization" ;
 	rdfs:subClassOf org:Organization .
 
 ### core:User
@@ -392,20 +413,20 @@ core:Notification rdf:type owl:Class ;
 core:Sensor rdf:type owl:Class ;
 	rdfs:label "Sensor" ;
 	rdfs:subClassOf core:Device ;
-	rdfs:subClassOf sosa:Sensor .
+	rdfs:subClassOf saref:Sensor .
 
 ### core:Actuator
 core:Actuator rdf:type owl:Class ;
 	rdfs:label "Actuator" ;
 	rdfs:subClassOf core:Device ;
-	rdfs:subClassOf sosa:Actuator .
+	rdfs:subClassOf saref:Actuator .
 
-### sosa:Sensor
-sosa:Sensor rdf:type owl:Class ;
+### saref:Sensor
+saref:Sensor rdf:type owl:Class ;
 	rdfs:label "Sensor" .
 
-### sosa:Actuator
-sosa:Actuator rdf:type owl:Class ;
+### saref:Actuator
+saref:Actuator rdf:type owl:Class ;
 	rdfs:label "Actuator" .
 
 ### saref:Property
@@ -486,10 +507,18 @@ geosparql:Geometry rdf:type owl:Class ;
 	rdfs:label "Geometry" ;
 	rdfs:subClassOf geo:SpatialThing .
 
+### core:Readability
+core:Readability rdf:type owl:Class ;
+	rdfs:label "Readability" .
+
+### core:Country
+core:Country rdf:type owl:Class ;
+	rdfs:label "Country" ;
+	rdfs:subClassOf geon:Feature .
+
 ### core:Dataset
 core:Dataset rdf:type owl:Class ;
-	rdfs:label "Dataset" ;
-	rdfs:subClassOf dcat:Dataset .
+	rdfs:label "Dataset" .
 
 ### dcat:Dataset
 dcat:Dataset rdf:type owl:Class ;
@@ -652,8 +681,8 @@ om:kelvin rdf:type owl:NamedIndividual;
 		rdf:type om:Unit_of_measure;
 		rdf:type om:Unit_of_measure .
 
-### time:unitHour
-time:unitHour rdf:type owl:NamedIndividual;
+### time:unitMinute
+time:unitMinute rdf:type owl:NamedIndividual;
 		rdf:type time:TemporalUnit;
 		rdf:type time:TemporalUnit .
 
@@ -669,6 +698,11 @@ core:milliampereHour rdf:type owl:NamedIndividual .
 core:ampereHour rdf:type owl:NamedIndividual;
 		rdf:type om:Unit_of_measure;
 		rdf:type om:Unit_of_measure .
+
+### time:unitHour
+time:unitHour rdf:type owl:NamedIndividual;
+		rdf:type time:TemporalUnit;
+		rdf:type time:TemporalUnit .
 
 #################################################################
 #    General Axioms
