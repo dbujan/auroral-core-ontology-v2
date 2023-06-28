@@ -6,7 +6,7 @@ This repository contains the code and documentation generated for the the AURORA
 
 ![core](https://github.com/morelab/auroral-core-ontology-v2/blob/master/diagrams/core-dataset.png)
 
-# Lines added to the ontology file
+## Lines added to the ontology file
 
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
