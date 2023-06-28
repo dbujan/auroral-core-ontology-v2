@@ -4,65 +4,58 @@ This repository contains the code and documentation generated for the the AURORA
 
 ## Current version of the ontology model with the Dataset entity added
 
-![core](https://github.com/morelab/auroral-core-ontology-v2/blob/master/diagrams/core-dataset.png)
+![core](https://github.com/dbujan/auroral-core-ontology-v2/blob/master/diagrams/core-dataset.png)
 
-# Lines added to the ontology file
+## Updates to the ontology file
 
+```
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 <https://auroral.iot.linkeddata.es/def/core#> rdf:type owl:Ontology ;
-                                               dc:contributor "David Buján-Carballal" ;
                                                dc:creator "Ahlem Rhayem" ,
                                                           "Alba Fernández Izquierdo" ,
                                                           "Andrea Cimmino" ,
                                                           "María Poveda-Villalón" ,
                                                           "Raúl García Castro" ;
+                                               dc:contributor "David Buján-Carballal" ;
                                                dc:description "This ontology aims at modelling the data related to users, items, notification and organisations for the AURORAL project." ;
                                                dc:title "The AURORAL Core Ontology" ;
                                                <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
                                                owl:versionInfo "0.0.3" .
+```
 
+### Annotation properties
 
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/elements/1.1/contributor
+```
+### http://purl.org/dc/elements/1.1/contributor
 dc:contributor rdf:type owl:AnnotationProperty .
 
-###  http://purl.org/dc/elements/1.1/description
+### http://purl.org/dc/elements/1.1/description
 dc:description rdf:type owl:AnnotationProperty .
 
-###  http://purl.org/dc/elements/1.1/title
+### http://purl.org/dc/elements/1.1/title
 dc:title rdf:type owl:AnnotationProperty .
 
-###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+### http://purl.org/dc/terms/license
+dc:license rdf:type owl:AnnotationProperty .
+```
 
+### Data properties
 
-
-#################################################################
-#    Data properties
-#################################################################
-
+```
 ###  http://purl.org/dc/elements/1.1/license
 dc:license rdf:type owl:DatatypeProperty .
-
 
 ###  http://www.w3.org/ns/dcat#accessURL
 dcat:accessURL rdf:type owl:DatatypeProperty .
 
-
 ###  http://www.w3.org/ns/dcat#keyword
 dcat:keyword rdf:type owl:DatatypeProperty .
+```
 
+### Classes
 
-
-	#################################################################
-#    Classes
-#################################################################
-
+```
 ###  http://www.w3.org/ns/dcat#Dataset
 dcat:Dataset rdf:type owl:Class ;
              rdfs:label "Dataset" .
@@ -104,3 +97,4 @@ core:Dataset rdf:type owl:Class ;
                                owl:someValuesFrom xsd:boolean
                              ] ;
              rdfs:label "Dataset" .
+```

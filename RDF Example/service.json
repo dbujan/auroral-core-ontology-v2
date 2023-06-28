@@ -1,0 +1,45 @@
+{
+  "@context": [
+      "https://www.w3.org/2019/wot/td/v1",
+      "https://auroralh2020.github.io/auroral-ontology-contexts/core/services.json"
+  ],
+  "@type": "Service",
+  "adapterId": "bavenir-celltower-service",
+  "title": "Closest Cell Towers Service",
+  "description":
+    "Cell tower data service"
+  ,
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "security": "nosec_sc",
+  "language": "eng",
+  "place": "Slovakia",
+  "serviceFree": [ true ],
+  "applicableGeographicalArea": "Europe",
+  "hasDomain": "Mobility",
+  "hasSubDomain": "Coverage",
+  "hasFunctionality": "Only read",
+  "provider": "bAvenir",
+  "currentStatus": "Available",
+  "properties": {
+    "gettowers": {
+      "type": "array",
+      "title": "Get towers",
+      "readOnly": true,
+      "description": "Returns 5 closest cell towers based on user's location [lat,lon]",
+      "forms": [
+        {
+          "href": "http://localhost:8000/api/cell-towers/closest/rdf-mapping"
+        }
+      ],
+      "items": {
+        "type": "object",
+        "@type": "https://auroral.iot.linkeddata.es/def/cell#CellTowers"
+      }
+    }
+  }
+}
+
