@@ -11,33 +11,40 @@ This repository contains the code and documentation generated for the the AURORA
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 <https://auroral.iot.linkeddata.es/def/core#> rdf:type owl:Ontology ;
+
                                                dc:creator "Ahlem Rhayem" ,
+
                                                           "Alba Fernández Izquierdo" ,
+
                                                           "Andrea Cimmino" ,
+
                                                           "María Poveda-Villalón" ,
+
                                                           "Raúl García Castro" ;
+
                                                dc:contributor "David Buján-Carballal" ;
+
                                                dc:description "This ontology aims at modelling the data related to users, items, notification and organisations for the AURORAL project." ;
+
                                                dc:title "The AURORAL Core Ontology" ;
+
                                                <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
+
                                                owl:versionInfo "0.0.3" .
 
 
+### Annotation properties
 
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/elements/1.1/contributor
+\#\#\#  http://purl.org/dc/elements/1.1/contributor
 dc:contributor rdf:type owl:AnnotationProperty .
 
-###  http://purl.org/dc/elements/1.1/description
+\#\#\#  http://purl.org/dc/elements/1.1/description
 dc:description rdf:type owl:AnnotationProperty .
 
-###  http://purl.org/dc/elements/1.1/title
+\#\#\#  http://purl.org/dc/elements/1.1/title
 dc:title rdf:type owl:AnnotationProperty .
 
-###  http://purl.org/dc/terms/license
+\#\#\#  http://purl.org/dc/terms/license
 <http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
 
 
