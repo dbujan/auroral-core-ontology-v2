@@ -29,15 +29,6 @@ This repository contains the code and documentation generated for the the AURORA
 ```
 ### http://purl.org/dc/elements/1.1/contributor
 dc:contributor rdf:type owl:AnnotationProperty .
-
-### http://purl.org/dc/elements/1.1/description
-dc:description rdf:type owl:AnnotationProperty .
-
-### http://purl.org/dc/elements/1.1/title
-dc:title rdf:type owl:AnnotationProperty .
-
-### http://purl.org/dc/terms/license
-dc:license rdf:type owl:AnnotationProperty .
 ```
 
 ### Data properties
