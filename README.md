@@ -4,9 +4,9 @@ This repository contains the code and documentation generated for the the AURORA
 
 ## Current version of the ontology model with the Dataset entity added
 
-![core](https://github.com/morelab/auroral-core-ontology-v2/blob/master/diagrams/core-dataset.png)
+![core](https://github.com/dbujan/auroral-core-ontology-v2/blob/master/diagrams/core-dataset.png)
 
-## Lines added to the ontology file
+## Updates to the ontology file
 
 ```
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -40,7 +40,7 @@ dc:title rdf:type owl:AnnotationProperty .
 dc:license rdf:type owl:AnnotationProperty .
 ```
 
-###    Data properties
+### Data properties
 
 ```
 ###  http://purl.org/dc/elements/1.1/license
@@ -53,7 +53,7 @@ dcat:accessURL rdf:type owl:DatatypeProperty .
 dcat:keyword rdf:type owl:DatatypeProperty .
 ```
 
-###    Classes
+### Classes
 
 ```
 ###  http://www.w3.org/ns/dcat#Dataset
