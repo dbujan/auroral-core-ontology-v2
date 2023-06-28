@@ -8,30 +8,21 @@ This repository contains the code and documentation generated for the the AURORA
 
 ## Lines added to the ontology file
 
+```
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 <https://auroral.iot.linkeddata.es/def/core#> rdf:type owl:Ontology ;
-
                                                dc:creator "Ahlem Rhayem" ,
-
                                                           "Alba Fernández Izquierdo" ,
-
                                                           "Andrea Cimmino" ,
-
                                                           "María Poveda-Villalón" ,
-
                                                           "Raúl García Castro" ;
-
                                                dc:contributor "David Buján-Carballal" ;
-
                                                dc:description "This ontology aims at modelling the data related to users, items, notification and organisations for the AURORAL project." ;
-
                                                dc:title "The AURORAL Core Ontology" ;
-
                                                <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
-
                                                owl:versionInfo "0.0.3" .
-
+```
 
 ### Annotation properties
 
