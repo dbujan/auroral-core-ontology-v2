@@ -1,27 +1,15 @@
 @prefix ns1: < https://auroral.iot.linkeddata.es/def/core# > .
-@prefix ns2: < https://www.w3.org/2019/wot/td# > .
-@prefix ns3: < http://lexvo.org/ontology# > .
 @prefix xsd: < http://www.w3.org/2001/XMLSchema# > .
 
-ns1:Service1 a ns1:Service ;
-    ns2:title "accomodationService"^^xsd:string ;
-    ns2:description "service for accomodation"^^xsd:string ;
-    ns2:created "12-01-2022T12:10:14"^^xsd:dateTime ;
-    ns2:modified "12-01-2023T11:05:34"^^xsd:dateTime ;
-    ns1:provider "Luxactive"^^xsd:string ;
-    ns1:currentStatus "available"^^xsd:string ;
-    ns1:hasDomain ns1:Tourism ;
-    ns1:hasSubDomain "Musuemvisit"^^xsd:string
-    ns1:hasRequirement "Photo not allowed"^^xsd:string .
-    ns1:serviceFree true ; 
-    ns1:numberOfDownload 15 ;
-    ns1:versionOfservice "version1"^^xsd:string ;
-    ns1:hasFunctionality "Guide in Musuem"^^xsd:string ;
-    ns3:language   ns3:English ; 
-    ns3:language   ns3:Spanich ; 
-    ns1:applicableToGeographicArea  ns1:PlaceService1 ;
-
-ns1:PlaceService1 a ns1:Place
-    ns1:code "codeCountry"^^xsd:string ;
-    ns1:name "nameCountry"^^xsd:string ;
-    
+ns1:Dataset1 a ns1:Dataset ;
+    ns1:title "Socio-economic and cultural dataset for Energy Efficiency"^^xsd:string ;
+    ns1:description "The questionnaire is provided in pdf "GreenSoul_Questionnaire.pdf" The coded data from 303 interviewees is provided in "all_code_final_zenodo.xlsx" The dataset is composed of several factors which are all explained in different TXT files. * socio-economic_description_not_dependent_of_work.txt - Contains all the information from participants which is irrespective of their current workplace. This file contains typical socio-demographic and cultural attributes from respondents. * socio-economic_description_dependent_of_work.txt - Contains socio-economic and cultural information from participants which is relevant to the workplace in relation to energy efficient practices in such an environment. * actions-at-work.txt - Are a set of attributes which describe certain practices of employees in relation to energy efficiency. * persuasive_strategies.txt - Explain the ratings from 1 to 5 that participants attributed to a set of persuasive strategies. These strategies are framed within Psychological Persuasive principles which are also explained in the file. * all_attributes_together.txt - All the variables together without distinction of the environment where they are applicable. Finally, plots from every construct or attribute are provided in the files uploaded in "PNG" extension"^^xsd:string ;
+    ns1:created "22-03-2023T17:12:00"^^xsd:dateTime ;
+    ns1:modified "22-03-2023T17:12:00"^^xsd:dateTime ;
+    ns1:provider "University of Deusto"^^xsd:string ;
+    ns1:hasDomain ns1:Energy ;
+    ns1:accessURL "https://zenodo.org/record/2596067"^^xsd:string .
+    ns1:visibility true ; 
+    ns1:license "Creative Commons Attribution License (cc-by)"^^xsd:string ;
+    ns1:keyword "Energy"^^xsd:string ;
+    ns1:keyword "Efficiency"^^xsd:string ;
